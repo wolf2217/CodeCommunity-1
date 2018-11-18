@@ -134,5 +134,14 @@
     <Folder Include="Model\" />
     <Folder Include="View\" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Community.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Community_log.ldf">
+      <DependentUpon>Community.mdf</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
