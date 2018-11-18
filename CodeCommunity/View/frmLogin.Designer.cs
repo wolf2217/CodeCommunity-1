@@ -85,7 +85,7 @@
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(86, 30);
             this.btnLogin.TabIndex = 4;
-            this.btnLogin.Text = "SUBMIT";
+            this.btnLogin.Text = "LOGIN";
             this.btnLogin.UseVisualStyleBackColor = false;
             // 
             // btnCancel
@@ -121,6 +121,7 @@
             this.lblRegisterLink.Size = new System.Drawing.Size(125, 13);
             this.lblRegisterLink.TabIndex = 7;
             this.lblRegisterLink.Text = "Don\'t Have an Account?";
+            this.lblRegisterLink.Click += new System.EventHandler(this.lblRegisterLink_Click);
             // 
             // frmLogin
             // 

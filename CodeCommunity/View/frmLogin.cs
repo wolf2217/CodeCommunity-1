@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CodeCommunity.View;
 
 namespace CodeCommunity.View
 {
@@ -17,6 +18,12 @@ namespace CodeCommunity.View
         {
             InitializeComponent();
             
+        }
+
+        private void lblRegisterLink_Click(object sender, EventArgs e)
+        {
+            frmRegister_New_User new_user = new frmRegister_New_User();
+            new_user.Show();
         }
     }
 }
