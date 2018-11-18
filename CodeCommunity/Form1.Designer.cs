@@ -200,16 +200,16 @@
 
         private System.Windows.Forms.Panel pnlLogin;
         private System.Windows.Forms.Button btnLogin;
-        private System.Windows.Forms.TextBox txtLoginPass;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtLoginUser;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel pnlRegister;
         private System.Windows.Forms.Button btnSignup;
-        private System.Windows.Forms.TextBox txtNewPass;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtNewUser;
         private System.Windows.Forms.Label label4;
+        public System.Windows.Forms.TextBox txtNewPass;
+        public System.Windows.Forms.TextBox txtNewUser;
+        public System.Windows.Forms.TextBox txtLoginPass;
+        public System.Windows.Forms.TextBox txtLoginUser;
     }
 }
 

@@ -25,9 +25,7 @@ namespace CodeCommunity
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Properties.Settings.Default.Username = "";
-            Properties.Settings.Default.Save();
-            Application.Restart();
+            Model.Users.Logout();
         }
     }
 }
