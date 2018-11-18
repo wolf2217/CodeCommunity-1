@@ -60,17 +60,15 @@ namespace CodeCommunity
             var checkLogin = from cc_users in db.cc_users
                              where cc_users.UserName == txtLoginUser.Text && cc_users.Password == txtLoginPass.Text
                              select cc_users;
-            foreach(var user in checkLogin)
+
+            if(checkLogin.Count() == 1)
             {
-                if(txtLoginUser.Text == user.UserName && txtLoginPass.Text == user.Password)
-                {
-                    Dashboard dashboard = new Dashboard();
-                    dashboard.Show();
-                }
-                else
-                {
-                    MessageBox.Show("Login failed");
-                }
+                Dashboard dashboard = new Dashboard();
+                dashboard.Show();
+            }
+            else
+            {
+                MessageBox.Show("Login failed");
             }
         }
     }
