@@ -23,20 +23,19 @@ namespace CodeCommunity
         {
             var checkUser = from cc_users in db.cc_users
                             where cc_users.UserName == txtNewUser.Text
-                            select cc_users;
+                            select new //here we select new and below we create variables to hold the fields we want
+                            {
+                                username = cc_users.UserName
+                            };
 
             foreach (var user in checkUser)
             {
-                if(user.UserName == txtNewUser.Text)
+                if(user.username == txtNewUser.Text)
                 {
                     MessageBox.Show("Username already exists");
                 }
                 else
                 {
-
-
-                    
-
                     var createUser = new Linq.cc_user()
                     {
                         UserName = txtNewUser.Text,
