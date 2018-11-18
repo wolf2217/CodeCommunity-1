@@ -71,17 +71,20 @@ namespace CodeCommunity
         private void btnLogin_Click(object sender, EventArgs e)
         {
             var checkLogin = from cc_users in db.cc_users
-                             where cc_users.UserName == txtLoginUser.Text && cc_users.Password == txtLoginPass.Text
+                             where cc_users.UserName == txtLoginUser.Text
                              select new
                              {
                                  username = cc_users.UserName,
-                                 password = cc_users.Password
+                                 password = cc_users.Password, 
+                                 salt = cc_users.Salt
                              };
 
             foreach(var user in checkLogin)
             {
-                if(txtLoginUser.Text == user.username && txtLoginPass.Text == user.password)
+                //var saltByte = new byte[user.salt.Length];
+                if (PasswordHashHelper.Verify(txtLoginPass.Text, user.password))
                 {
+                    MessageBox.Show("Passwords Match");
                     Dashboard dashboard = new Dashboard();
                     dashboard.Show();
                 }
