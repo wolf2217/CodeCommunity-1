@@ -113,6 +113,8 @@
             // lblRegisterLink
             // 
             this.lblRegisterLink.AutoSize = true;
+            this.lblRegisterLink.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblRegisterLink.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRegisterLink.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.lblRegisterLink.Location = new System.Drawing.Point(218, 252);
             this.lblRegisterLink.Name = "lblRegisterLink";
