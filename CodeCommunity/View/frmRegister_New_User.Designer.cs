@@ -43,11 +43,12 @@
             this.txtLast_Name = new System.Windows.Forms.TextBox();
             this.lblLast_Name = new System.Windows.Forms.Label();
             this.lblAge = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.profileImage = new System.Windows.Forms.PictureBox();
             this.btnChoose_Profile_Img = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
             this.numUpDown_Age = new System.Windows.Forms.NumericUpDown();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.txtProfileImage = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.profileImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDown_Age)).BeginInit();
             this.SuspendLayout();
             // 
@@ -131,7 +132,6 @@
             this.txtEmail.Location = new System.Drawing.Point(61, 240);
             this.txtEmail.Multiline = true;
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.PasswordChar = '*';
             this.txtEmail.Size = new System.Drawing.Size(263, 26);
             this.txtEmail.TabIndex = 15;
             // 
@@ -151,7 +151,6 @@
             this.txtFirst_Name.Location = new System.Drawing.Point(61, 298);
             this.txtFirst_Name.Multiline = true;
             this.txtFirst_Name.Name = "txtFirst_Name";
-            this.txtFirst_Name.PasswordChar = '*';
             this.txtFirst_Name.Size = new System.Drawing.Size(263, 26);
             this.txtFirst_Name.TabIndex = 17;
             // 
@@ -171,7 +170,6 @@
             this.txtLast_Name.Location = new System.Drawing.Point(61, 356);
             this.txtLast_Name.Multiline = true;
             this.txtLast_Name.Name = "txtLast_Name";
-            this.txtLast_Name.PasswordChar = '*';
             this.txtLast_Name.Size = new System.Drawing.Size(263, 26);
             this.txtLast_Name.TabIndex = 19;
             // 
@@ -197,16 +195,16 @@
             this.lblAge.TabIndex = 20;
             this.lblAge.Text = "Age :";
             // 
-            // pictureBox1
+            // profileImage
             // 
-            this.pictureBox1.ErrorImage = null;
-            this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
-            this.pictureBox1.Location = new System.Drawing.Point(66, 444);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(64, 64);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 22;
-            this.pictureBox1.TabStop = false;
+            this.profileImage.ErrorImage = null;
+            this.profileImage.InitialImage = ((System.Drawing.Image)(resources.GetObject("profileImage.InitialImage")));
+            this.profileImage.Location = new System.Drawing.Point(66, 444);
+            this.profileImage.Name = "profileImage";
+            this.profileImage.Size = new System.Drawing.Size(64, 64);
+            this.profileImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.profileImage.TabIndex = 22;
+            this.profileImage.TabStop = false;
             // 
             // btnChoose_Profile_Img
             // 
@@ -239,16 +237,24 @@
             this.numUpDown_Age.Size = new System.Drawing.Size(207, 20);
             this.numUpDown_Age.TabIndex = 25;
             // 
+            // txtProfileImage
+            // 
+            this.txtProfileImage.Location = new System.Drawing.Point(145, 495);
+            this.txtProfileImage.Name = "txtProfileImage";
+            this.txtProfileImage.Size = new System.Drawing.Size(178, 20);
+            this.txtProfileImage.TabIndex = 26;
+            // 
             // frmRegister_New_User
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.ClientSize = new System.Drawing.Size(384, 611);
+            this.Controls.Add(this.txtProfileImage);
             this.Controls.Add(this.numUpDown_Age);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.btnChoose_Profile_Img);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.profileImage);
             this.Controls.Add(this.lblAge);
             this.Controls.Add(this.txtLast_Name);
             this.Controls.Add(this.lblLast_Name);
@@ -266,7 +272,7 @@
             this.Name = "frmRegister_New_User";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Code Community -REGISTER USER-";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.profileImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUpDown_Age)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -289,9 +295,10 @@
         private System.Windows.Forms.TextBox txtLast_Name;
         private System.Windows.Forms.Label lblLast_Name;
         private System.Windows.Forms.Label lblAge;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox profileImage;
         private System.Windows.Forms.Button btnChoose_Profile_Img;
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.NumericUpDown numUpDown_Age;
+        private System.Windows.Forms.TextBox txtProfileImage;
     }
 }
