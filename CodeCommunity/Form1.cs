@@ -28,31 +28,29 @@ namespace CodeCommunity
                                 username = cc_users.UserName
                             };
 
-            foreach (var user in checkUser)
+            if(checkUser.Count() == 1)
             {
-                if(user.username == txtNewUser.Text)
+                MessageBox.Show("Username already exists");
+            }
+            else
+            {
+                var createUser = new Linq.cc_user()
                 {
-                    MessageBox.Show("Username already exists");
+                    UserName = txtNewUser.Text,
+                    Password = txtNewPass.Text,
+                    Created = DateTime.Now.ToLongDateString()
+                };
+                db.cc_users.InsertOnSubmit(createUser);
+                try
+                {
+                    db.SubmitChanges();
+                    MessageBox.Show("User created");
+                    Properties.Settings.Default.Username = txtNewUser.Text;
+                    Properties.Settings.Default.Save();
                 }
-                else
+                catch (Exception ex)
                 {
-                    var createUser = new Linq.cc_user()
-                    {
-                        UserName = txtNewUser.Text,
-                        Password = txtNewPass.Text,
-                        Created = DateTime.Now.ToLongDateString()
-                    };
-                    db.cc_users.InsertOnSubmit(createUser);
-                    try
-                    {
-                        db.SubmitChanges();
-                        MessageBox.Show("User created");
-                        Properties.Settings.Default.Username = txtNewUser.Text;
-                        Properties.Settings.Default.Save();
-                    }catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
-                    }
+                    MessageBox.Show(ex.Message);
                 }
             }
         }
