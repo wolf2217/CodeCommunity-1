@@ -84,7 +84,7 @@ namespace CodeCommunity
                 //var saltByte = new byte[user.salt.Length];
                 if (PasswordHashHelper.Verify(txtLoginPass.Text, user.password))
                 {
-                    MessageBox.Show("Passwords Match");
+                    //MessageBox.Show("Passwords Match");
                     Dashboard dashboard = new Dashboard();
                     dashboard.Show();
                 }
