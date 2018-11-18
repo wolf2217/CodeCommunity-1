@@ -17,7 +17,7 @@ namespace CodeCommunity.Model
         /// <return>
         /// model classes don't return anything, they are used to set or get info
         /// </return>
-        public int ID { get; set; }
+        public int ID { get; }
         public string UserName { get; set; }
         public string Email { get; set; }
         public string Password_Hash { get; set; }
@@ -28,10 +28,9 @@ namespace CodeCommunity.Model
         public int Age { get; set; }
         public DateTime Date_Created { get; set; }
 
-        public User(int iD, string userName, string email, string password_Hash, string salt, 
+        public User(string userName, string email, string password_Hash, string salt, 
             string first_Name, string last_Name, string profile_Img_Path, int age, DateTime date_Created)
         {
-            ID = iD;
             UserName = userName ?? throw new ArgumentNullException(nameof(userName));
             Email = email ?? throw new ArgumentNullException(nameof(email));
             Password_Hash = password_Hash ?? throw new ArgumentNullException(nameof(password_Hash));
@@ -42,5 +41,7 @@ namespace CodeCommunity.Model
             Age = age;
             Date_Created = date_Created;
         }
+
+        
     }
 }

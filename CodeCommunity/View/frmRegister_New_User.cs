@@ -8,12 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CodeCommunity.Controller;
+using CodeCommunity.Model;
 
 namespace CodeCommunity.View
 {
     public partial class frmRegister_New_User : Form
     {
-
         public frmRegister_New_User()
         {
             InitializeComponent();
@@ -32,17 +32,18 @@ namespace CodeCommunity.View
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-
+            // call the controller to handle the user registration
+            //User user = new User();
         }
 
         private void btnChoose_Profile_Img_Click(object sender, EventArgs e)
         {
-
+            // load a picture from the users computer and resize it to fit
         }
     }
 }

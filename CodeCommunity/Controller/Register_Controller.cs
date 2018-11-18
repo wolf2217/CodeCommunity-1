@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CodeCommunity.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,10 @@ namespace CodeCommunity.Controller
     /// </summary>
     public static class Register_Controller
     {
+        /// <summary>
+        /// reset the user form
+        /// </summary>
+        /// <param name="items"></param>
         public static void Reset_Form(Control[] items)
         {
             foreach (var item in items)
@@ -26,6 +31,12 @@ namespace CodeCommunity.Controller
                 }
 
             }
+        }
+
+        //add the user info to the database
+        public static void Register_User(User user)
+        {
+
         }
     }
 }
