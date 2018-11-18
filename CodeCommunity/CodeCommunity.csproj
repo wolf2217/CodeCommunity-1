@@ -86,6 +86,7 @@
       <DependentUpon>dbStructure.dbml</DependentUpon>
     </Compile>
     <Compile Include="Controller\PasswordHashHelper.cs" />
+    <Compile Include="Model\Users.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Dashboard.resx">
@@ -143,8 +144,16 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Model\" />
     <Folder Include="View\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Community.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Community_log.ldf">
+      <DependentUpon>Community.mdf</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
