@@ -57,14 +57,20 @@ namespace CodeCommunity
             }
         }
 
+        //I changed the select new here also...now it selects the cc_users username and password
         private void btnLogin_Click(object sender, EventArgs e)
         {
             var checkLogin = from cc_users in db.cc_users
                              where cc_users.UserName == txtLoginUser.Text && cc_users.Password == txtLoginPass.Text
-                             select cc_users;
+                             select new
+                             {
+                                 username = cc_users.UserName,
+                                 password = cc_users.Password
+                             };
+
             foreach(var user in checkLogin)
             {
-                if(txtLoginUser.Text == user.UserName && txtLoginPass.Text == user.Password)
+                if(txtLoginUser.Text == user.username && txtLoginPass.Text == user.password)
                 {
                     Dashboard dashboard = new Dashboard();
                     dashboard.Show();
