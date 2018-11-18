@@ -85,6 +85,8 @@ namespace CodeCommunity
                 if (PasswordHashHelper.Verify(txtLoginPass.Text, user.password))
                 {
                     //MessageBox.Show("Passwords Match");
+                    Properties.Settings.Default.Username = txtLoginUser.Text;
+                    Properties.Settings.Default.Save();
                     Dashboard dashboard = new Dashboard();
                     dashboard.Show();
                 }

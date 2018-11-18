@@ -16,5 +16,18 @@ namespace CodeCommunity
         {
             InitializeComponent();
         }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            EditProfile editProfile = new EditProfile();
+            editProfile.Show();
+        }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Properties.Settings.Default.Username = "";
+            Properties.Settings.Default.Save();
+            Application.Restart();
+        }
     }
 }
