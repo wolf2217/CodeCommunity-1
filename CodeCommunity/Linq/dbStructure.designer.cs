@@ -86,6 +86,8 @@ namespace CodeCommunity.Linq
 		
 		private string _Email;
 		
+		private string _ProfileImage;
+		
 		private string _Password;
 		
 		private string _Salt;
@@ -108,6 +110,8 @@ namespace CodeCommunity.Linq
     partial void OnUserNameChanged();
     partial void OnEmailChanging(string value);
     partial void OnEmailChanged();
+    partial void OnProfileImageChanging(string value);
+    partial void OnProfileImageChanged();
     partial void OnPasswordChanging(string value);
     partial void OnPasswordChanged();
     partial void OnSaltChanging(string value);
@@ -183,6 +187,26 @@ namespace CodeCommunity.Linq
 					this._Email = value;
 					this.SendPropertyChanged("Email");
 					this.OnEmailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProfileImage", DbType="NVarChar(MAX)")]
+		public string ProfileImage
+		{
+			get
+			{
+				return this._ProfileImage;
+			}
+			set
+			{
+				if ((this._ProfileImage != value))
+				{
+					this.OnProfileImageChanging(value);
+					this.SendPropertyChanging();
+					this._ProfileImage = value;
+					this.SendPropertyChanged("ProfileImage");
+					this.OnProfileImageChanged();
 				}
 			}
 		}
