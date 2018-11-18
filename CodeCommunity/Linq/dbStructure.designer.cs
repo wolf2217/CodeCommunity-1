@@ -88,6 +88,8 @@ namespace CodeCommunity.Linq
 		
 		private string _Password;
 		
+		private string _Salt;
+		
 		private string _FirstName;
 		
 		private string _LastName;
@@ -108,6 +110,8 @@ namespace CodeCommunity.Linq
     partial void OnEmailChanged();
     partial void OnPasswordChanging(string value);
     partial void OnPasswordChanged();
+    partial void OnSaltChanging(string value);
+    partial void OnSaltChanged();
     partial void OnFirstNameChanging(string value);
     partial void OnFirstNameChanged();
     partial void OnLastNameChanging(string value);
@@ -183,7 +187,7 @@ namespace CodeCommunity.Linq
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="NVarChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Password", DbType="NVarChar(100)")]
 		public string Password
 		{
 			get
@@ -199,6 +203,26 @@ namespace CodeCommunity.Linq
 					this._Password = value;
 					this.SendPropertyChanged("Password");
 					this.OnPasswordChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Salt", DbType="NVarChar(100)")]
+		public string Salt
+		{
+			get
+			{
+				return this._Salt;
+			}
+			set
+			{
+				if ((this._Salt != value))
+				{
+					this.OnSaltChanging(value);
+					this.SendPropertyChanging();
+					this._Salt = value;
+					this.SendPropertyChanged("Salt");
+					this.OnSaltChanged();
 				}
 			}
 		}
