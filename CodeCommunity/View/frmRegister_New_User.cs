@@ -9,13 +9,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CodeCommunity.Controller;
+using CodeCommunity.Model;
 
 namespace CodeCommunity.View
 {
     public partial class frmRegister_New_User : Form
     {
-        Linq.dbStructureDataContext db = new Linq.dbStructureDataContext();
-        private const int SaltSize = 16;
+
         public frmRegister_New_User()
         {
             InitializeComponent();
@@ -34,61 +34,17 @@ namespace CodeCommunity.View
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            //create salt
-            byte[] salt;
-            new RNGCryptoServiceProvider().GetBytes(salt = new byte[SaltSize]);
-            //generate hash with salt
-            string hash = PasswordHashHelper.Hash(txtPassword.Text, salt, 1000);
 
-            var checkUser = from cc_users in db.cc_users
-                            where cc_users.UserName == txtusername.Text
-                            select cc_users.UserName;
-
-
-            if (checkUser.Count() == 1)
-            {
-                MessageBox.Show("Username already exists");
-            }
-            else
-            {
-                var createUser = new Linq.cc_user()
-                {
-                    UserName = txtusername.Text,
-                    Password = hash,
-                    Created = DateTime.Now.ToLongDateString(),
-                    Salt = Convert.ToBase64String(salt),
-                    Email = txtEmail.Text,
-                    FirstName = txtFirst_Name.Text,
-                    LastName = txtLast_Name.Text,
-                    ProfileImage = txtProfileImage.Text
-
-                };
-                db.cc_users.InsertOnSubmit(createUser);
-                try
-                {
-                    db.SubmitChanges();
-                    MessageBox.Show("User created");
-                    Properties.Settings.Default.Username = txtusername.Text;
-                    Properties.Settings.Default.Save();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-            }
         }
 
         private void btnChoose_Profile_Img_Click(object sender, EventArgs e)
         {
-            OpenFileDialog ofd = new OpenFileDialog();
-            ofd.ShowDialog();
-            txtProfileImage.Text = ofd.FileName;
-            profileImage.ImageLocation = ofd.FileName;
+
         }
     }
 }
